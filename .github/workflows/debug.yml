@@ -2,13 +2,12 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "sdcard" ]
+    branches: [ "sdcard", "santoni-aarch64" ]
   pull_request:
-    branches: [ "sdcard" ]
+    branches: [ "sdcard", "santoni-aarch64" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -16,15 +15,7 @@ jobs:
     - name: CI Build
       run: chmod +x ci-build.sh && ./ci-build.sh
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
-        name: Y560
-        path: ./workspace/Y560.img
-    - uses: actions/upload-artifact@v3
-      with:
-        name: Lumia 650
-        path: ./workspace/emmc_appsboot.mbn
-    - uses: actions/upload-artifact@v3
-      with:
-        name: E1M
-        path: ./workspace/E1M.img
+        name: boot-santoni
+        path: boot-santoni.img
