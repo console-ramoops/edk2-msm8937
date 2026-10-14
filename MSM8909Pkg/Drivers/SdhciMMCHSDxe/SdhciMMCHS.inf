@@ -32,8 +32,8 @@
   QcomPlatformMmcLib
   QcomTargetMmcSdhciLib
 
-[BuildOptions.ARM]
-  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 
 [Protocols]
   gEfiBlockIoProtocolGuid

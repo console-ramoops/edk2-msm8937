@@ -19,6 +19,6 @@
   IoLib
   ArmLib
 
-[BuildOptions.ARM]
-  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow -Wno-int-conversion
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow -Wno-int-conversion -Wno-int-to-pointer-cast
 

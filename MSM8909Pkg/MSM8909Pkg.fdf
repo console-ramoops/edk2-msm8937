@@ -213,7 +213,11 @@ READ_LOCK_STATUS   = TRUE
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
 
   FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-    SECTION RAW = MSM8909Pkg/FdtBlob/msm8937-xiaomi-land.dtb
+!ifdef $(DEVICE_DTB)
+    SECTION RAW = $(DEVICE_DTB)
+!else
+    SECTION RAW = MSM8909Pkg/FdtBlob/msm8940-xiaomi-santoni.dtb
+!endif
   }
 
   #

@@ -14,8 +14,11 @@
   ProcessorSupport.S | GCC
   ModuleEntryPoint.S | GCC
 
-[BuildOptions.ARM]
-  GCC:*_*_*_CC_FLAGS = -Werror -Wno-error=unused-function 
+[Sources.AArch64]
+  AArch64/ModuleEntryPoint.S | GCC
+
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-error=unused-function -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 
 [Packages]
   MdePkg/MdePkg.dec

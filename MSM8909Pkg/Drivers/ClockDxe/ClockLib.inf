@@ -18,8 +18,8 @@
 [LibraryClasses]
   UefiBootServicesTableLib
 
-[BuildOptions.ARM]
-  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow -Wno-int-to-pointer-cast
 
 [Protocols]
   gQcomClockProtocolGuid

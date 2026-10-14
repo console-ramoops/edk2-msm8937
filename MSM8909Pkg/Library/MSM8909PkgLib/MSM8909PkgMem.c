@@ -56,11 +56,11 @@ ArmPlatformGetVirtualMemoryMap (
 {
   //TO-DO:ADD MEMORY MAP HERE
     PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = gDeviceMemoryDescriptorEx;
-    ARM_MEMORY_REGION_DESCRIPTOR MemoryDescriptor[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
+    STATIC ARM_MEMORY_REGION_DESCRIPTOR MemoryDescriptor[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
     UINTN Index = 0;
 
     // Run through each memory descriptor
-    while (MemoryDescriptorEx->Address != (EFI_PHYSICAL_ADDRESS)0xFFFFFFFF)
+    while (MemoryDescriptorEx->Length != 0)
     {
         switch (MemoryDescriptorEx->HobOption)
         {

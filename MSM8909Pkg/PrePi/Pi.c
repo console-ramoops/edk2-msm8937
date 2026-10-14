@@ -52,7 +52,7 @@ VOID EFIAPI ProcessLibraryConstructorList(VOID);
 STATIC VOID UartInit(VOID)
 {
   /* Clear screen at new FB address */ 
-  UINT8 *base = (UINT8 *)0x8dd01000ull;
+  UINT8 *base = (UINT8 *)(UINTN)FixedPcdGet32(PcdMipiFrameBufferAddress);
   for (UINTN i = 0; i < 0x00800000; i++) {
     base[i] = 0;
   }
@@ -65,7 +65,7 @@ STATIC VOID UartInit(VOID)
   
   SerialPortInitialize();
 
-  DEBUG((EFI_D_INFO, "\nTianoCore on MSM8937 (ARM)\n"));
+  DEBUG((EFI_D_INFO, "\nTianoCore on MSM8937/8940 (AArch64)\n"));
   DEBUG(
       (EFI_D_INFO, "Firmware version %s built %a %a\n\n",
        (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), __TIME__, __DATE__));
@@ -103,7 +103,7 @@ VOID Main(IN VOID *StackBase, IN UINTN StackSize)
       (EFI_D_INFO | EFI_D_LOAD,
        "UEFI Memory Base = 0x%llx, Size = 0x%llx, Stack Base = 0x%llx, Stack "
        "Size = 0x%llx\n",
-       UefiMemoryBase, UefiMemorySize, StackBase, StackSize));
+       (UINT64)UefiMemoryBase, (UINT64)UefiMemorySize, (UINT64)(UINTN)StackBase, (UINT64)StackSize));
 
   // Set up HOB
   HobList = HobConstructor(

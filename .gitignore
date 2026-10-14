@@ -2,3 +2,5 @@ uefi.img
 12
 MSM8909_UEFI.fd.gz
 BootShim/BootShim.bin
+BootShim/BootShim64.bin
+BootShim/BootShim64.elf

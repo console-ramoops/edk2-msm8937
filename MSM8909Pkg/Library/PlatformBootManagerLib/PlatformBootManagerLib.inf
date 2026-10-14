@@ -41,7 +41,7 @@
   ShellPkg/ShellPkg.dec
   MSM8909Pkg/MSM8909Pkg.dec
 
-[BuildOptions.ARM]
+[BuildOptions.common]
   GCC:*_*_*_CC_FLAGS = -Wno-unused-variable
 
 [LibraryClasses]

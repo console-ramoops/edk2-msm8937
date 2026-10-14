@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/dts-v1/;
+
+/ {
+	model = "Xiaomi Redmi 4X";
+	compatible = "xiaomi,santoni", "qcom,msm8940", "qcom,msm8937";
+	qcom,msm-id = <313 0>, <294 0>;
+	qcom,board-id = <0x1000b 1>, <0x2000b 1>;
+
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	chosen { };
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0 0 0 0>;
+	};
+};
